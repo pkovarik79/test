@@ -1,50 +1,52 @@
-
-<!DOCTYPE html>
+<!doctype html>
 <html lang="cs">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Můj první web na GitHubu</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background: #f0f4f8;
-      text-align: center;
-      padding: 80px 20px;
-      color: #1e293b;
-    }
-
-    h1 { color: #2563eb; }
-
-    button {
-      background: #2563eb;
-      color: white;
-      border: none;
-      padding: 15px 30px;
-      border-radius: 10px;
-      font-size: 18px;
-      cursor: pointer;
-    }
-
-    button:hover { background: #1d4ed8; }
-  </style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#0a0d1c">
+<title>Digitální hřiště | HTML experiment</title>
+<style>
+:root{color-scheme:dark;--bg:#090b18;--panel:rgba(255,255,255,.065);--line:rgba(255,255,255,.15);--text:#f7f7ff;--muted:#b9bdd3;--a:#9b8cff;--b:#47e5d0}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;min-height:100vh;background:var(--bg);color:var(--text);font-family:Inter,system-ui,-apple-system,Segoe UI,sans-serif;overflow-x:hidden;transition:background .3s,color .3s}
+body.light{color-scheme:light;--bg:#f1f3ff;--panel:rgba(255,255,255,.75);--line:rgba(42,39,83,.17);--text:#19162e;--muted:#565574;--a:#6552db;--b:#087e87}
+.orb{position:fixed;pointer-events:none;z-index:-1;border-radius:50%;filter:blur(95px);opacity:.32}.orb.one{width:540px;height:540px;background:#6051e8;top:-230px;left:-130px}.orb.two{width:520px;height:520px;background:#00c9be;bottom:-280px;right:-150px}
+.shell{width:min(1100px,calc(100% - 40px));margin:auto}nav{height:90px;display:flex;align-items:center;justify-content:space-between;gap:18px}.logo{display:flex;align-items:center;gap:11px;font-weight:800;letter-spacing:-.035em;font-size:20px}.logo-mark{display:grid;place-items:center;width:36px;height:36px;border-radius:12px;background:linear-gradient(135deg,var(--a),var(--b));color:#fff}.nav-right{display:flex;align-items:center;gap:12px}button{font:inherit;cursor:pointer;border:0}button:focus-visible,a:focus-visible{outline:3px solid var(--b);outline-offset:3px}.smallbtn{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:12px 15px;color:var(--text)}.tag{display:inline-flex;align-items:center;gap:9px;color:var(--b);padding:9px 14px;border:1px solid var(--line);border-radius:100px;background:var(--panel);font-size:13px;font-weight:700}.dot{height:8px;width:8px;background:var(--b);border-radius:50%;box-shadow:0 0 14px var(--b)}header{padding:75px 0 90px;text-align:center}h1{font-size:clamp(46px,8vw,100px);line-height:1.02;letter-spacing:-.075em;max-width:900px;margin:26px auto}.gradient{background:linear-gradient(105deg,var(--a) 16%,var(--b) 95%);-webkit-background-clip:text;background-clip:text;color:transparent}.lead{font-size:clamp(17px,2.4vw,21px);line-height:1.65;color:var(--muted);max-width:620px;margin:24px auto 34px}.actions{display:flex;justify-content:center;flex-wrap:wrap;gap:13px}.primary{padding:16px 24px;border-radius:14px;background:linear-gradient(115deg,#8675fa,#31cabb);color:#0a1022;font-weight:800;box-shadow:0 15px 40px rgba(86,91,211,.24);transition:transform .2s}.primary:hover{transform:translateY(-3px)}.secondary{padding:16px 24px;border-radius:14px;border:1px solid var(--line);color:var(--text);background:var(--panel)}.status{margin:24px auto 0;min-height:26px;color:var(--muted);font-size:14px}section{padding-bottom:90px}.section-title{font-size:30px;letter-spacing:-.04em;margin:0 0 12px}.section-sub{color:var(--muted);margin:0 0 26px;line-height:1.6}.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.card{position:relative;overflow:hidden;padding:29px;min-height:240px;background:var(--panel);border:1px solid var(--line);border-radius:23px;backdrop-filter:blur(14px);transition:transform .2s,border-color .2s}.card:hover{transform:translateY(-5px);border-color:var(--a)}.card .symbol{font-size:33px}.card h3{font-size:21px;margin:24px 0 8px;letter-spacing:-.035em}.card p{line-height:1.6;color:var(--muted);margin:0;font-size:15px}.lab{padding:28px;border:1px solid var(--line);border-radius:24px;background:var(--panel);display:flex;align-items:center;justify-content:space-between;gap:25px}.lab p{color:var(--muted);line-height:1.6;margin-bottom:0}.counter{display:flex;align-items:center;gap:18px}.count{font-size:42px;font-weight:850;min-width:80px;text-align:center;font-variant-numeric:tabular-nums}.square{width:54px;height:54px;border-radius:16px;color:var(--text);font-size:26px;background:var(--panel);border:1px solid var(--line)}footer{border-top:1px solid var(--line);padding:27px 0 45px;color:var(--muted);font-size:14px;text-align:center}.spark{position:fixed;z-index:9;pointer-events:none;font-size:22px;animation:fly 950ms ease-out forwards}@keyframes fly{to{transform:translate(var(--dx),var(--dy)) rotate(90deg) scale(.3);opacity:0}}@media(max-width:760px){nav{height:74px}header{padding:64px 0 75px}.cards{grid-template-columns:1fr}.card{min-height:auto}.lab{align-items:stretch;flex-direction:column}.counter{justify-content:center}.nav-right .smallbtn{padding:10px}section{padding-bottom:65px}}@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation-duration:.01ms!important;scroll-behavior:auto!important;transition-duration:.01ms!important}}
+</style>
 </head>
 <body>
-
-  <h1>Hurá! Můj web funguje!</h1>
-
-  <p>Tato stránka běží zdarma na GitHub Pages.</p>
-
-  <button onclick="pozdrav()">Klikni na mě</button>
-
-  <p id="vysledek"></p>
-
-  <script>
-    function pozdrav() {
-      document.getElementById("vysledek").innerText =
-        "Gratuluji! JavaScript funguje správně.";
-    }
-  </script>
-
-</body>
-</html>
+<div class="orb one"></div><div class="orb two"></div>
+<div class="shell">
+<nav aria-label="Hlavní navigace">
+<div class="logo"><span class="logo-mark">✳</span> digitální hřiště<span style="color:var(--b)">.</span></div>
+<div class="nav-right"><button class="smallbtn" id="theme" aria-label="Přepnout světlý režim">☀️ Režim</button></div>
+</nav>
+<header>
+<div class="tag"><span class="dot"></span> WEB ŽIJE NA GITHUB PAGES</div>
+<h1>Tohle není jen<br><span class="gradient">obyčejná stránka.</span></h1>
+<p class="lead">Je to malý experiment s HTML, CSS a JavaScriptem. Bez serveru, bez instalace a s prostorem pro další nápady.</p>
+<div class="actions"><button id="surprise" class="primary">✦ Překvap mě</button><a class="secondary" href="#experimenty" style="text-decoration:none">Prozkoumat stránku ↓</a></div>
+<div id="message" class="status" role="status" aria-live="polite">Klikni a uvidíš, co se stane.</div>
+</header>
+<section id="experimenty">
+<h2 class="section-title">Tři technologie. Jedna stránka.</h2>
+<p class="section-sub">Všechno, co vidíš, běží přímo v prohlížeči.</p>
+<div class="cards">
+<article class="card"><div class="symbol">◇</div><h3>HTML</h3><p>Struktura a obsah stránky, od nadpisů až po interaktivní prvky.</p></article>
+<article class="card"><div class="symbol">◉</div><h3>CSS</h3><p>Gradienty, skleněné karty, animace a přizpůsobení mobilům.</p></article>
+<article class="card"><div class="symbol">⌘</div><h3>JavaScript</h3><p>Přepínání režimu, reakce na kliknutí a malé experimenty.</p></article>
+</div>
+</section>
+<section>
+<div class="lab"><div><h2 class="section-title">Mini laboratoř</h2><p>Otestuj si tlačítka. Počítadlo funguje bez obnovování stránky.</p></div><div class="counter"><button class="square" id="minus" aria-label="Odečíst jedna">−</button><output class="count" id="count">0</output><button class="square" id="plus" aria-label="Přičíst jedna">+</button></div></div>
+</section>
+<footer>Vytvořeno jako ukázka možností GitHub Pages · 2026</footer>
+</div>
+<script>
+const theme=document.querySelector('#theme');
+theme.addEventListener('click',()=>{document.body.classList.toggle('light');theme.textContent=document.body.classList.contains('light')?'🌙 Režim':'☀️ Režim';});
+let count=0;const output=document.querySelector('#count');document.querySelector('#plus').addEventListener('click',()=>{output.textContent=++count});document.querySelector('#minus').addEventListener('click',()=>{output.textContent=--count});
+const messages=['Ano, JavaScript opravdu funguje.','Právě jsi spustil malý digitální ohňostroj.','A tohle všechno běží zdarma na GitHub Pages.','Další úroveň: přidej vlastní projekt.'];
+let n=0;
+document.querySelector('#surprise').addEventListener('click',e=>{document.querySelector('#message').textContent=messages[n++%messages.length];if(window.matchMedia('(prefers-reduced-motion: reduce)').matches)return;const r=e.currentTarget.getBoundingClientRect();for(let i=0;i<22;i++){const el=document.createElement('span');el.className='spark';el.textContent=['✦','✳','•'][i%3];el.style.left=(r.left+r.width/2)+'px';el.style.top=(r.top+r.height/2)+'px';el.style.color=i%2?'#47e5d0':'#9b8cff';el.style.setProperty('--dx',(Math.random()-.5)*420+'px');el.style.setProperty('--dy',(Math.random()-.5)*350+'px');document.body.appendChild(el);el.addEventListener('animationend',()=>el.remove(),{once:true});}});
+</script>
+</body></html>
