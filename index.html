@@ -1,0 +1,50 @@
+
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Můj první web na GitHubu</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f0f4f8;
+      text-align: center;
+      padding: 80px 20px;
+      color: #1e293b;
+    }
+
+    h1 { color: #2563eb; }
+
+    button {
+      background: #2563eb;
+      color: white;
+      border: none;
+      padding: 15px 30px;
+      border-radius: 10px;
+      font-size: 18px;
+      cursor: pointer;
+    }
+
+    button:hover { background: #1d4ed8; }
+  </style>
+</head>
+<body>
+
+  <h1>Hurá! Můj web funguje!</h1>
+
+  <p>Tato stránka běží zdarma na GitHub Pages.</p>
+
+  <button onclick="pozdrav()">Klikni na mě</button>
+
+  <p id="vysledek"></p>
+
+  <script>
+    function pozdrav() {
+      document.getElementById("vysledek").innerText =
+        "Gratuluji! JavaScript funguje správně.";
+    }
+  </script>
+
+</body>
+</html>
